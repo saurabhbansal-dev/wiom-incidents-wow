@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incident WoW Trends — Feb 7 to Mar 6, 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6fa; color: #1a1d2e; }
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #2d6a9f 100%); color: white; padding: 28px 40px; }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header p { font-size: 13px; opacity: 0.75; margin-top: 4px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 28px 24px; }
+  .filter-note { background: #eff6ff; border: 1px solid #93c5fd; border-radius: 8px; padding: 10px 16px; font-size: 12px; color: #1d4ed8; margin-bottom: 24px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 3px solid #2d6a9f; }
+  .kpi .week { font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi .value { font-size: 26px; font-weight: 700; color: #1a1d2e; margin: 6px 0 4px; }
+  .kpi .label { font-size: 12px; color: #6b7280; }
+  .kpi .wow { font-size: 12px; font-weight: 600; margin-top: 8px; padding: 3px 8px; border-radius: 20px; display: inline-block; }
+  .wow.down  { background: #fef2f2; color: #dc2626; }
+  .wow.up    { background: #fef2f2; color: #dc2626; }
+  .wow.good  { background: #f0fdf4; color: #16a34a; }
+  .wow.neutral { background: #f3f4f6; color: #6b7280; }
+  .kpi.warn  { border-top-color: #f59e0b; }
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+  .chart-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .chart-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #374151; }
+  .chart-card canvas { max-height: 220px; }
+  .chart-full { grid-column: 1 / -1; }
+  .table-card { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 24px; }
+  .table-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #374151; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8fafc; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 1px solid #e5e7eb; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f3f4f6; }
+  tr:last-child td { border-bottom: none; }
+  tr.w4 { background: #fffbeb; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .badge-red   { background:#fef2f2; color:#dc2626; }
+  .badge-green { background:#f0fdf4; color:#16a34a; }
+  .badge-gray  { background:#f3f4f6; color:#6b7280; }
+  .badge-warn  { background:#fef3c7; color:#92400e; }
+  .obs-card { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .obs-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #92400e; }
+  .obs-card li { font-size: 13px; line-height: 1.75; color: #78350f; margin-left: 18px; }
+  .gap-card { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 10px; padding: 20px 24px; }
+  .gap-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #991b1b; }
+  .gap-card li { font-size: 13px; line-height: 1.75; color: #7f1d1d; margin-left: 18px; }
+  .note { font-size: 11px; color: #9ca3af; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Incident Dashboard — Week-on-Week Trends</h1>
+  <p>Period: Feb 7 – Mar 6, 2026 &nbsp;|&nbsp; Source: Metabase Dashboard 1106 – Incident Dump</p>
+</div>
+<div class="container">
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="week">Week 1 — Baseline</div>
+      <div class="value">5,645</div>
+      <div class="label">Incidents &nbsp;|&nbsp; Feb 7–13</div>
+      <div class="wow neutral">— Baseline</div>
+    </div>
+    <div class="kpi">
+      <div class="week">Week 2</div>
+      <div class="value">4,761</div>
+      <div class="label">Incidents &nbsp;|&nbsp; Feb 14–20</div>
+      <div class="wow good">▼ 15.7% WoW</div>
+    </div>
+    <div class="kpi">
+      <div class="week">Week 3</div>
+      <div class="value">4,892</div>
+      <div class="label">Incidents &nbsp;|&nbsp; Feb 21–27</div>
+      <div class="wow up">▲ 2.8% WoW</div>
+    </div>
+    <div class="kpi warn">
+      <div class="week">Week 4 ⚠ partial</div>
+      <div class="value">3,534</div>
+      <div class="label">Incidents &nbsp;|&nbsp; Feb 28–Mar 6*</div>
+      <div class="wow good">▼ 27.8% WoW</div>
+    </div>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>📊 Incident Volume by Week</h3>
+      <canvas id="incidentChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>📱 Impacted Devices by Week</h3>
+      <canvas id="deviceChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>⏱ Avg Resolution Time — hrs (closed incidents only)</h3>
+      <canvas id="resTimeChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>✅ Resolution Rate (%)</h3>
+      <canvas id="resRateChart"></canvas>
+    </div>
+    <div class="chart-card chart-full">
+      <h3>📦 Size Bucket Split by Week</h3>
+      <canvas id="sizeChart" style="max-height:200px;"></canvas>
+    </div>
+  </div>
+  <div class="table-card">
+    <h3>📋 Full Weekly Summary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th><th>Incidents</th><th>WoW Δ</th>
+          <th>Devices Impacted</th><th>WoW Δ Devices</th>
+          <th>Avg Devices / Incident</th><th>Resolution Rate</th>
+          <th>Avg Res. Time (hrs)</th><th>WoW Δ Res. Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>W1</strong> Feb 7–13</td>
+          <td>5,645</td><td><span class="badge badge-gray">—</span></td>
+          <td>1,39,963</td><td><span class="badge badge-gray">—</span></td>
+          <td>24.8</td><td>87.5%</td><td>3.97</td>
+          <td><span class="badge badge-gray">—</span></td>
+        </tr>
+        <tr>
+          <td><strong>W2</strong> Feb 14–20</td>
+          <td>4,761</td><td><span class="badge badge-green">▼ 15.7%</span></td>
+          <td>1,13,469</td><td><span class="badge badge-green">▼ 18.9%</span></td>
+          <td>23.8</td><td>99.5%</td><td>3.21</td>
+          <td><span class="badge badge-green">▼ 19.2% faster</span></td>
+        </tr>
+        <tr>
+          <td><strong>W3</strong> Feb 21–27</td>
+          <td>4,892</td><td><span class="badge badge-red">▲ 2.8%</span></td>
+          <td>1,17,112</td><td><span class="badge badge-red">▲ 3.2%</span></td>
+          <td>23.9</td><td>99.7%</td><td>2.81</td>
+          <td><span class="badge badge-green">▼ 12.7% faster</span></td>
+        </tr>
+        <tr class="w4">
+          <td><strong>W4*</strong> Feb 28–Mar 6</td>
+          <td>3,534</td><td><span class="badge badge-green">▼ 27.8%</span></td>
+          <td>83,855</td><td><span class="badge badge-green">▼ 28.4%</span></td>
+          <td>23.7</td><td>94.8%</td><td>2.85</td>
+          <td><span class="badge badge-warn">▲ 1.5% slower</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">* W4 covers Feb 28 – Mar 6 but Mar 6 is a partial day (data up to ~15:00 IST). Lower incident/device counts partly reflect this. Resolution rate dip in W4 is expected — same-day incidents are still ACTIVE.</p>
+  </div>
+  <div class="table-card">
+    <h3>📦 Size Bucket Breakdown (SMALL / MEDIUM / LARGE)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>SMALL</th><th>SMALL %</th>
+          <th>MEDIUM</th><th>MEDIUM %</th>
+          <th>LARGE</th><th>LARGE %</th>
+          <th>Total Incidents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>W1</strong></td><td>4,098</td><td>72.6%</td><td>1,444</td><td>25.6%</td><td>103</td><td>1.8%</td><td><strong>5,645</strong></td></tr>
+        <tr><td><strong>W2</strong></td><td>3,596</td><td>75.5%</td><td>1,080</td><td>22.7%</td><td>85</td><td>1.8%</td><td><strong>4,761</strong></td></tr>
+        <tr><td><strong>W3</strong></td><td>3,745</td><td>76.6%</td><td>1,049</td><td>21.4%</td><td>98</td><td>2.0%</td><td><strong>4,892</strong></td></tr>
+        <tr class="w4"><td><strong>W4*</strong></td><td>2,667</td><td>75.5%</td><td>803</td><td>22.7%</td><td>64</td><td>1.8%</td><td><strong>3,534</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="obs-card">
+    <h3>🔍 Key Observations</h3>
+    <ul>
+      <li><strong>Significant volume drop in W2</strong> — Incidents fell 15.7% from W1 (5,645) to W2 (4,761). This was the biggest single-week improvement. Device impact fell even more sharply at -18.9%.</li>
+      <li><strong>W3 showed a mild rebound</strong> — Incidents ticked back up 2.8% in W3, suggesting the W2 drop was not fully sustained. This warrants monitoring to ensure W1 spike doesn't recur.</li>
+      <li><strong>W1 resolution rate was notably low at 87.5%</strong> — W2 and W3 hit 99.5–99.7%, a dramatic recovery. This suggests W1 had a backlog of unresolved incidents (703 still ACTIVE), possibly from a spike or operational issue.</li>
+      <li><strong>Resolution time improved consistently W1→W3</strong> — from 3.97 hrs to 2.81 hrs, a 29% improvement. W4 is marginally slower at 2.85 hrs, but this is within noise.</li>
+      <li><strong>High device impact per incident</strong> — incidents average 23–25 devices each. These are high-impact events; even a small count represents major user disruption.</li>
+      <li><strong>Size mix is stable</strong> — SMALL stays at ~73–77%, MEDIUM at ~21–26%, LARGE at ~1.8–2.0% across all weeks. No structural shift in the severity distribution.</li>
+    </ul>
+  </div>
+  <div class="gap-card" style="margin-top:16px;">
+    <h3>⚠ Gaps &amp; Improvement Opportunities</h3>
+    <ul>
+      <li><strong>W1 resolution gap needs root-cause</strong> — 703 incidents from W1 are still ACTIVE (12.5% unresolved). This is significantly worse than W2–W3 (&lt;0.5%). Understanding what caused this backlog is critical.</li>
+      <li><strong>W3 volume uptick needs watching</strong> — the +2.8% rebound in W3 after a strong W2 drop suggests the improvement wasn't structural. If MEDIUM/LARGE incidents are driven by specific infrastructure issues, a weekly alert threshold would help catch early.</li>
+      <li><strong>LARGE incident count is small but high-risk</strong> — 64–103 LARGE incidents per week with ~24 devices each deserve a separate deep-dive. Even a few extra LARGE incidents in a week can represent thousands of impacted users.</li>
+      <li><strong>W4 partial-day caveat</strong> — the 27.8% drop in W4 looks dramatic but Mar 6 is not a full day. A full-week view next Monday will give a cleaner read on the genuine trend direction.</li>
+      <li><strong>No SLA or resolution target defined</strong> — without a benchmark (e.g. "MEDIUM must resolve within 2 hrs"), it's impossible to classify weeks as pass/fail. Defining SLA tiers by bucket would sharpen the analysis significantly.</li>
+      <li><strong>Partner-level concentration unknown</strong> — are the same few partners generating most of the MEDIUM/LARGE incidents? A partner drill-down would identify systemic vs. one-off contributors.</li>
+    </ul>
+  </div>
+</div>
+<script>
+const weeks = ['W1: Feb 7–13', 'W2: Feb 14–20', 'W3: Feb 21–27', 'W4: Feb 28–Mar 6*'];
+const barColors     = ['#2d6a9f','#3b82f6','#60a5fa','#f59e0b'];
+const barBorders    = ['#1e4d7a','#2563eb','#3b82f6','#d97706'];
+const purpleColors  = ['#7c3aed','#8b5cf6','#a78bfa','#c4b5fd'];
+const purpleBorders = ['#5b21b6','#6d28d9','#7c3aed','#8b5cf6'];
+new Chart(document.getElementById('incidentChart'),{type:'bar',data:{labels:weeks,datasets:[{label:'Incidents',data:[5645,4761,4892,3534],backgroundColor:barColors,borderColor:barBorders,borderWidth:1.5,borderRadius:5}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,min:3000,ticks:{callback:v=>v.toLocaleString()}}}}});
+new Chart(document.getElementById('deviceChart'),{type:'bar',data:{labels:weeks,datasets:[{label:'Devices',data:[139963,113469,117112,83855],backgroundColor:purpleColors,borderColor:purpleBorders,borderWidth:1.5,borderRadius:5}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,min:70000,ticks:{callback:v=>(v/1000).toFixed(0)+'K'}}}}});
+new Chart(document.getElementById('resTimeChart'),{type:'line',data:{labels:weeks,datasets:[{label:'Avg Res. Time (hrs)',data:[3.97,3.21,2.81,2.85],borderColor:'#ef4444',backgroundColor:'rgba(239,68,68,0.1)',pointBackgroundColor:'#ef4444',pointRadius:5,fill:true,tension:0.3}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,min:2}}}});
+new Chart(document.getElementById('resRateChart'),{type:'line',data:{labels:weeks,datasets:[{label:'Resolution Rate (%)',data:[87.5,99.5,99.7,94.8],borderColor:'#16a34a',backgroundColor:'rgba(22,163,74,0.1)',pointBackgroundColor:'#16a34a',pointRadius:5,fill:true,tension:0.3}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,min:80}}}});
+new Chart(document.getElementById('sizeChart'),{type:'bar',data:{labels:weeks,datasets:[{label:'SMALL',data:[4098,3596,3745,2667],backgroundColor:'#3b82f6'},{label:'MEDIUM',data:[1444,1080,1049,803],backgroundColor:'#f59e0b'},{label:'LARGE',data:[103,85,98,64],backgroundColor:'#ef4444'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{x:{stacked:true},y:{stacked:true,ticks:{callback:v=>v.toLocaleString()}}}}});
+</script>
+</body>
+</html>
